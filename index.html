@@ -1,18 +1,22 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <body>
 
-<button onclick="myFunction()">Click me</button>
+<h1>Welcome to my web page!</h1>
+
+<p>Please click the button below to get a random 12 characters and numbers added on the back of the URL https://prnt.sc/</p>
+
+<button onclick="clickFunction()">Click me!</button>
 
 <script>
-function myFunction() {
+function clickFunction() {
     var text = "";
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
     for (var i = 0; i < 12; i++)
         text += possible.charAt(Math.floor(Math.random() * possible.length));
 
-    window.open(https://prnt.sc/ + text);
+    document.location.href = "https://prnt.sc/" + text;
 }
 </script>
 
