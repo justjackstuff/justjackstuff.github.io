@@ -1,53 +1,105 @@
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-.topnav {
-  overflow: hidden;
-  background-color: #333;
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
 }
 
-.topnav a {
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
   text-decoration: none;
-  font-size: 17px;
-}
-
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.topnav a.active {
-  background-color: #4CAF50;
-  color: white;
+  cursor: pointer;
 }
 </style>
 </head>
 <body>
 
-<div class="topnav">
-  <a class="active" href="#">Random Picture</a>
+<h2>Modal Example</h2>
+
+<!-- Trigger/Open The Modal -->
+<button id="myBtn">Open 12 Digits Sub-URL</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Here is a random 12 digits sub-URL from <a href="https://prnt.sc/">https://prnt.sc/</a>.</p>
+    <iframe id="iframe" src="" width="560" height="315"></iframe>
+  </div>
+
 </div>
 
-<div style="padding-left:16px">
-  <h2>Click the button to see a random picture from https://prnt.sc/</h2>
-  <p>The button will open a new page with the randomly selected picture.</p>
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
 
-<button onclick="window.open('https://prnt.sc/', '_blank');">Get Random Picture</button>
-  
-</div>
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+ // Random 12 digits sub-URL from https://prnt.sc/
+var randomURL = "https://prnt.sc/" + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+
+// Get the iframe element
+var iframe = document.getElementById("iframe");
+
+// Set source for iframe element
+iframe.src = randomURL;
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
 
 </body>
 </html>
-
