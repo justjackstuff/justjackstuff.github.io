@@ -2,18 +2,17 @@
 <html>
 <body>
 
-<button onclick="myFunction()">Get 12 random characters and numbers</button>
+<button onclick="myFunction()">Click me</button>
 
 <script>
 function myFunction() {
-  var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-  var string_length = 12;
-  var randomstring = '';
-  for (var i=0; i<string_length; i++) {
-    var rnum = Math.floor(Math.random() * chars.length);
-    randomstring += chars.substring(rnum,rnum+1);
-  }
-  document.write("https://prnt.sc/" + randomstring);
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for (var i = 0; i < 12; i++)
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+    window.open(https://prnt.sc/ + text);
 }
 </script>
 
